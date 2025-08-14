@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import Cliente from './cliente.js'
 import Funcionarios from './funcionarios.js'
-import type { HasMany } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class TicketsSuporte extends BaseModel {
   public static table = 'tickets_suporte'
@@ -13,8 +13,8 @@ export default class TicketsSuporte extends BaseModel {
   @column({ columnName: 'cliente_id' })
   declare clienteId: number
 
-  @hasMany(() => Cliente, { foreignKey: 'cliente_id' })
-  declare cliente: HasMany<typeof Cliente>
+  @belongsTo(() => Cliente, { foreignKey: 'clienteId' })
+  declare cliente: BelongsTo<typeof Cliente>
 
   @column({ columnName: 'funcionarios' })
   declare userId: number

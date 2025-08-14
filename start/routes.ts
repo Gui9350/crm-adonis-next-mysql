@@ -18,7 +18,7 @@ router
   .resource('clientes_campanhas', () => import('#controllers/cliente_campanhas_controller'))
   .apiOnly()
 router.resource('produtos', () => import('#controllers/produtos_controller')).apiOnly()
-router.resource('interacaos', () => import('#controllers/interacaos_controller')).apiOnly()
+router.resource('interacoes', () => import('#controllers/interacaos_controller')).apiOnly()
 router.resource('itens_vendas', () => import('#controllers/itens_vendas_controller')).apiOnly()
 router.resource('vendas', () => import('#controllers/vendas_controller')).apiOnly()
 router

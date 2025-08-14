@@ -3,6 +3,7 @@ import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { hasMany } from '@adonisjs/lucid/orm'
 import Interacao from './interacao.js'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
+import TicketsSuporte from './tickets_suporte.js'
 
 export default class Cliente extends BaseModel {
   @column({ isPrimary: true })
@@ -49,4 +50,7 @@ export default class Cliente extends BaseModel {
 
   @hasMany(() => Interacao, { foreignKey: 'clienteId' })
   declare interacoes: HasMany<typeof Interacao>
+
+  @hasMany(() => TicketsSuporte, { foreignKey: 'clienteId' })
+  declare ticketsSuporte: HasMany<typeof TicketsSuporte>
 }
